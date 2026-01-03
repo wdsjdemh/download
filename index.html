@@ -377,44 +377,10 @@
             border-radius: 2px;
         }
 
-        /* 下载分类筛选器 */
-        .category-filter {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 48px;
-        }
-
-        .filter-btn {
-            padding: 10px 20px;
-            background-color: var(--white);
-            border: 1px solid var(--gray-300);
-            border-radius: var(--radius-sm);
-            color: var(--gray-700);
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .filter-btn:hover {
-            background-color: var(--gray-100);
-            transform: translateY(-2px);
-        }
-
-        .filter-btn.active {
-            background-color: var(--primary);
-            color: var(--white);
-            border-color: var(--primary);
-        }
-
         /* 下载卡片网格 */
         .downloads-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 32px;
             margin-bottom: 64px;
         }
@@ -453,13 +419,20 @@
             width: 56px;
             height: 56px;
             border-radius: var(--radius-sm);
-            background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
-            color: var(--primary);
+            color: var(--white);
             flex-shrink: 0;
+        }
+
+        .card-icon.pc {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        }
+
+        .card-icon.mobile {
+            background: linear-gradient(135deg, var(--secondary), #7C3AED);
         }
 
         .card-title h3 {
@@ -541,6 +514,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            text-decoration: none;
         }
 
         .download-btn:hover {
@@ -556,6 +530,14 @@
 
         .download-btn.secondary:hover {
             background-color: var(--gray-300);
+        }
+
+        .download-btn.mobile {
+            background-color: var(--secondary);
+        }
+
+        .download-btn.mobile:hover {
+            background-color: #7C3AED;
         }
 
         .update-date {
@@ -632,6 +614,23 @@
             border-radius: 4px;
             font-size: 0.875rem;
             color: var(--gray-800);
+        }
+
+        .qr-code {
+            width: 150px;
+            height: 150px;
+            background-color: var(--gray-100);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        .qr-code img {
+            max-width: 100%;
+            height: auto;
         }
 
         /* 动画 */
@@ -766,6 +765,10 @@
             .installation-guide {
                 padding: 24px;
             }
+            
+            .downloads-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -785,6 +788,10 @@
                 flex-direction: column;
                 gap: 16px;
                 align-items: flex-start;
+            }
+            
+            .downloads-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -827,7 +834,7 @@
             <div class="container">
                 <div class="hero-content">
                     <h2>下载中心</h2>
-                    <p>获取DreamWorld服务器所需的所有资源，包括客户端、地图、材质包等</p>
+                    <p>获取DreamWorld服务器专用客户端，选择适合您的平台版本</p>
                 </div>
             </div>
         </section>
@@ -838,7 +845,7 @@
                 <div class="download-info-card">
                     <div class="download-title">
                         <i class="fas fa-cloud-download-alt"></i>
-                        <h3>资源下载说明</h3>
+                        <h3>客户端下载说明</h3>
                     </div>
                     
                     <div class="download-details">
@@ -847,7 +854,7 @@
                                 <i class="fas fa-server"></i>
                             </div>
                             <div class="download-name">DreamWorld</div>
-                            <div class="download-role">资源中心</div>
+                            <div class="download-role">专用客户端</div>
                         </div>
                         
                         <div class="download-info">
@@ -856,8 +863,8 @@
                                     <i class="fas fa-info-circle"></i>
                                 </div>
                                 <div class="info-text">
-                                    <h4>资源说明</h4>
-                                    <p>所有资源均为DreamWorld服务器专用，确保与服务器版本兼容</p>
+                                    <h4>客户端说明</h4>
+                                    <p>DreamWorld服务器专用客户端，已预装必要模组和配置，无需额外设置</p>
                                 </div>
                             </div>
                             
@@ -867,7 +874,7 @@
                                 </div>
                                 <div class="info-text">
                                     <h4>安全保证</h4>
-                                    <p>所有文件均经过安全检查，无病毒、无恶意软件</p>
+                                    <p>所有客户端均经过安全检查，无病毒、无恶意软件，可放心使用</p>
                                 </div>
                             </div>
                             
@@ -876,8 +883,8 @@
                                     <i class="fas fa-sync-alt"></i>
                                 </div>
                                 <div class="info-text">
-                                    <h4>更新频率</h4>
-                                    <p>资源会随服务器更新而更新，建议定期检查最新版本</p>
+                                    <h4>兼容性</h4>
+                                    <p>客户端针对DreamWorld服务器优化，确保最佳游戏体验和兼容性</p>
                                 </div>
                             </div>
                         </div>
@@ -890,50 +897,31 @@
         <section class="downloads-section">
             <div class="container">
                 <div class="section-title">
-                    <h2>服务器资源</h2>
-                    <p>选择您需要的资源进行下载，确保与服务器版本匹配</p>
-                </div>
-                
-                <!-- 分类筛选器 -->
-                <div class="category-filter">
-                    <button class="filter-btn active" data-filter="all">
-                        <i class="fas fa-th-large"></i> 全部资源
-                    </button>
-                    <button class="filter-btn" data-filter="client">
-                        <i class="fas fa-desktop"></i> 客户端
-                    </button>
-                    <button class="filter-btn" data-filter="map">
-                        <i class="fas fa-map"></i> 地图
-                    </button>
-                    <button class="filter-btn" data-filter="texture">
-                        <i class="fas fa-palette"></i> 材质包
-                    </button>
-                    <button class="filter-btn" data-filter="data">
-                        <i class="fas fa-database"></i> 数据包
-                    </button>
+                    <h2>服务器客户端</h2>
+                    <p>选择适合您设备的客户端版本，一键下载安装</p>
                 </div>
                 
                 <!-- 下载资源网格 -->
                 <div class="downloads-grid">
-                    <!-- 客户端整合包 -->
-                    <div class="download-card" data-category="client">
+                    <!-- 电脑端客户端 -->
+                    <div class="download-card">
                         <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-box-open"></i>
+                            <div class="card-icon pc">
+                                <i class="fas fa-desktop"></i>
                             </div>
                             <div class="card-title">
-                                <h3>DreamWorld 客户端整合包</h3>
-                                <p>推荐使用，包含所有必要模组</p>
+                                <h3>电脑端客户端</h3>
+                                <p>Windows / macOS / Linux</p>
                             </div>
                         </div>
                         <div class="card-content">
                             <p class="card-description">
-                                专为DreamWorld服务器优化的客户端整合包，包含性能优化模组、小地图、一键整理等实用功能。
+                                专为DreamWorld服务器优化的电脑端客户端，包含性能优化模组、小地图、一键整理等实用功能，支持Windows、macOS和Linux系统。
                             </p>
                             <div class="card-details">
                                 <div class="detail-item">
                                     <div class="detail-label">文件大小</div>
-                                    <div class="detail-value size">312 MB</div>
+                                    <div class="detail-value size">约 300 MB</div>
                                 </div>
                                 <div class="detail-item">
                                     <div class="detail-label">版本</div>
@@ -943,203 +931,59 @@
                                     <div class="detail-label">Minecraft</div>
                                     <div class="detail-value">1.21.1</div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <button class="download-btn" data-file="dreamworld-client-pack.zip">
-                                <i class="fas fa-download"></i> 下载整合包
-                            </button>
-                            <div class="update-date">更新于 2025-12-25</div>
-                        </div>
-                    </div>
-                    
-                    <!-- 服务器地图 -->
-                    <div class="download-card" data-category="map">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-globe-asia"></i>
-                            </div>
-                            <div class="card-title">
-                                <h3>服务器主世界地图</h3>
-                                <p>完整世界地图下载</p>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <p class="card-description">
-                                DreamWorld服务器主世界地图备份，包含所有玩家建筑、公共设施和自然生成的地形。
-                            </p>
-                            <div class="card-details">
                                 <div class="detail-item">
-                                    <div class="detail-label">文件大小</div>
-                                    <div class="detail-value size">1.2 GB</div>
-                                </div>
-                                <div class="detail-item">
-                                    <div class="detail-label">版本</div>
-                                    <div class="detail-value version">v2025.12</div>
-                                </div>
-                                <div class="detail-item">
-                                    <div class="detail-label">地图区域</div>
-                                    <div class="detail-value">主世界</div>
+                                    <div class="detail-label">系统要求</div>
+                                    <div class="detail-value">Windows 10+ / macOS 10.15+</div>
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button class="download-btn" data-file="dreamworld-world-map.zip">
-                                <i class="fas fa-download"></i> 下载地图
-                            </button>
-                            <div class="update-date">更新于 2025-12-20</div>
+                            <a href="https://www.123912.com/s/FESrVv-kmTWd" class="download-btn" target="_blank">
+                                <i class="fas fa-download"></i> 下载电脑端
+                            </a>
+                            <div class="update-date">更新于 2025-12-28</div>
                         </div>
                     </div>
                     
-                    <!-- 材质包 -->
-                    <div class="download-card" data-category="texture">
+                    <!-- 手机端客户端 -->
+                    <div class="download-card">
                         <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-images"></i>
+                            <div class="card-icon mobile">
+                                <i class="fas fa-mobile-alt"></i>
                             </div>
                             <div class="card-title">
-                                <h3>DreamWorld 材质包</h3>
-                                <p>服务器推荐材质包</p>
+                                <h3>手机端客户端</h3>
+                                <p>Android / iOS</p>
                             </div>
                         </div>
                         <div class="card-content">
                             <p class="card-description">
-                                专为DreamWorld定制的材质包，优化了原版材质细节，添加了服务器专属物品和方块材质。
+                                DreamWorld服务器专用手机端客户端，支持Android和iOS系统，针对移动设备优化，包含触控优化、简化UI和移动端专用功能。
                             </p>
                             <div class="card-details">
                                 <div class="detail-item">
                                     <div class="detail-label">文件大小</div>
-                                    <div class="detail-value size">86 MB</div>
+                                    <div class="detail-value size">约 150 MB</div>
                                 </div>
                                 <div class="detail-item">
                                     <div class="detail-label">版本</div>
-                                    <div class="detail-value version">v1.3.2</div>
-                                </div>
-                                <div class="detail-item">
-                                    <div class="detail-label">分辨率</div>
-                                    <div class="detail-value">32x</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <button class="download-btn" data-file="dreamworld-texture-pack.zip">
-                                <i class="fas fa-download"></i> 下载材质包
-                            </button>
-                            <div class="update-date">更新于 2025-12-15</div>
-                        </div>
-                    </div>
-                    
-                    <!-- 服务器数据包 -->
-                    <div class="download-card" data-category="data">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <div class="card-title">
-                                <h3>服务器数据包</h3>
-                                <p>自定义游戏机制</p>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <p class="card-description">
-                                包含DreamWorld服务器的自定义合成配方、进度系统、游戏规则等数据包，确保与服务器功能一致。
-                            </p>
-                            <div class="card-details">
-                                <div class="detail-item">
-                                    <div class="detail-label">文件大小</div>
-                                    <div class="detail-value size">4.7 MB</div>
-                                </div>
-                                <div class="detail-item">
-                                    <div class="detail-label">版本</div>
-                                    <div class="detail-value version">v1.0.5</div>
+                                    <div class="detail-value version">v1.5.2</div>
                                 </div>
                                 <div class="detail-item">
                                     <div class="detail-label">Minecraft</div>
-                                    <div class="detail-value">1.21.1</div>
+                                    <div class="detail-value">基岩版 1.21.0</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">系统要求</div>
+                                    <div class="detail-value">Android 8.0+ / iOS 13+</div>
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button class="download-btn" data-file="dreamworld-datapack.zip">
-                                <i class="fas fa-download"></i> 下载数据包
-                            </button>
-                            <div class="update-date">更新于 2025-12-10</div>
-                        </div>
-                    </div>
-                    
-                    <!-- 服务器规则手册 -->
-                    <div class="download-card" data-category="doc">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-book"></i>
-                            </div>
-                            <div class="card-title">
-                                <h3>服务器规则手册</h3>
-                                <p>PDF格式，完整规则</p>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <p class="card-description">
-                                DreamWorld服务器完整规则手册，包含玩家守则、建筑规范、交易规则等所有服务器规章制度的详细说明。
-                            </p>
-                            <div class="card-details">
-                                <div class="detail-item">
-                                    <div class="detail-label">文件大小</div>
-                                    <div class="detail-value size">3.2 MB</div>
-                                </div>
-                                <div class="detail-item">
-                                    <div class="detail-label">版本</div>
-                                    <div class="detail-value version">v2.0</div>
-                                </div>
-                                <div class="detail-item">
-                                    <div class="detail-label">页数</div>
-                                    <div class="detail-value">24页</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <button class="download-btn secondary" data-file="dreamworld-rules.pdf">
-                                <i class="fas fa-file-pdf"></i> 查看手册
-                            </button>
-                            <div class="update-date">更新于 2025-12-05</div>
-                        </div>
-                    </div>
-                    
-                    <!-- 光影包 -->
-                    <div class="download-card" data-category="texture">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-sun"></i>
-                            </div>
-                            <div class="card-title">
-                                <h3>推荐光影包</h3>
-                                <p>Complementary Shaders</p>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <p class="card-description">
-                                服务器推荐的Complementary Shaders光影包，在DreamWorld服务器上有最佳的视觉效果和性能平衡。
-                            </p>
-                            <div class="card-details">
-                                <div class="detail-item">
-                                    <div class="detail-label">文件大小</div>
-                                    <div class="detail-value size">12 MB</div>
-                                </div>
-                                <div class="detail-item">
-                                    <div class="detail-label">版本</div>
-                                    <div class="detail-value version">v4.7.1</div>
-                                </div>
-                                <div class="detail-item">
-                                    <div class="detail-label">兼容性</div>
-                                    <div class="detail-value">OptiFine/Iris</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <button class="download-btn" data-file="complementary-shaders.zip">
-                                <i class="fas fa-download"></i> 下载光影
-                            </button>
-                            <div class="update-date">更新于 2025-11-28</div>
+                            <a href="https://www.123912.com/s/FESrVv-omTWd" class="download-btn mobile" target="_blank">
+                                <i class="fas fa-download"></i> 下载手机端
+                            </a>
+                            <div class="update-date">更新于 2025-12-28</div>
                         </div>
                     </div>
                 </div>
@@ -1151,22 +995,33 @@
                         <div class="guide-step">
                             <div class="step-number"></div>
                             <div class="step-content">
-                                <h4>客户端整合包安装</h4>
-                                <p>下载整合包后，使用 <code>PCL2</code>、<code>HMCL</code> 或 <code>MultiMC</code> 等启动器导入整合包文件。启动器会自动安装所有必需模组和配置。</p>
+                                <h4>电脑端安装步骤</h4>
+                                <p>1. 点击上方"下载电脑端"按钮，下载客户端安装包</p>
+                                <p>2. 解压下载的ZIP文件到任意目录</p>
+                                <p>3. 运行文件夹中的"启动器.exe"（Windows）或"启动器.app"（macOS）</p>
+                                <p>4. 启动器会自动配置Java环境和模组，点击"启动游戏"即可</p>
                             </div>
                         </div>
                         <div class="guide-step">
                             <div class="step-number"></div>
                             <div class="step-content">
-                                <h4>材质包/光影安装</h4>
-                                <p>将下载的材质包或光影文件放入Minecraft游戏目录下的 <code>resourcepacks</code> 或 <code>shaderpacks</code> 文件夹，然后在游戏内的选项菜单中启用。</p>
+                                <h4>手机端安装步骤</h4>
+                                <p>1. 点击上方"下载手机端"按钮，下载APK文件（Android）或通过TestFlight安装（iOS）</p>
+                                <p>2. Android用户需在设置中允许"安装未知来源应用"</p>
+                                <p>3. 安装完成后打开应用，服务器地址已预设为：<code>play.simpfun.cn:30808</code></p>
+                                <p>4. 点击"加入服务器"即可开始游戏</p>
                             </div>
                         </div>
                         <div class="guide-step">
                             <div class="step-number"></div>
                             <div class="step-content">
-                                <h4>数据包安装</h4>
-                                <p>数据包仅适用于单人世界。将数据包文件放入对应世界存档的 <code>datapacks</code> 文件夹，然后使用命令 <code>/reload</code> 或重新进入世界加载。</p>
+                                <h4>常见问题</h4>
+                                <p><strong>Q: 启动游戏时提示Java错误？</strong></p>
+                                <p>A: 请确保已安装Java 17或更高版本，或使用客户端自带的Java环境。</p>
+                                <p><strong>Q: 手机端无法连接服务器？</strong></p>
+                                <p>A: 请检查网络连接，并确保已开启VPN（如需）。服务器地址为：<code>play.simpfun.cn:30808</code></p>
+                                <p><strong>Q: 游戏运行卡顿？</strong></p>
+                                <p>A: 可尝试在视频设置中降低渲染距离和画面质量，或分配更多内存给游戏。</p>
                             </div>
                         </div>
                     </div>
@@ -1248,68 +1103,6 @@
                 if (link.getAttribute('href') === 'https://download.dreamworld.eu.org') {
                     link.classList.add('active');
                 }
-            });
-            
-            // 分类筛选功能
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const downloadCards = document.querySelectorAll('.download-card');
-            
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // 移除所有按钮的active类
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    // 添加当前按钮的active类
-                    button.classList.add('active');
-                    
-                    const filter = button.getAttribute('data-filter');
-                    
-                    // 显示/隐藏卡片
-                    downloadCards.forEach(card => {
-                        const category = card.getAttribute('data-category');
-                        
-                        if (filter === 'all' || filter === category) {
-                            card.style.display = 'flex';
-                            setTimeout(() => {
-                                card.style.opacity = '1';
-                                card.style.transform = 'translateY(0)';
-                            }, 10);
-                        } else {
-                            card.style.opacity = '0';
-                            card.style.transform = 'translateY(20px)';
-                            setTimeout(() => {
-                                card.style.display = 'none';
-                            }, 300);
-                        }
-                    });
-                });
-            });
-            
-            // 下载按钮功能
-            const downloadButtons = document.querySelectorAll('.download-btn');
-            downloadButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const fileName = this.getAttribute('data-file');
-                    const fileUrl = `https://files.zohopublic.com.cn/public/workdrive-public/download/6om8b1085acfc377a4724a66bf16ed2af78ae?x-cli-msg=%7B%22linkId%22%3A%2218bBxsSa3R3-2Pp0I%22%2C%22isFileOwner%22%3Afalse%2C%22version%22%3A%221.0%22%2C%22isWDSupport%22%3Afalse%7D&filename=${encodeURIComponent(fileName)}`;
-                    
-                    // 创建临时链接进行下载
-                    const link = document.createElement('a');
-                    link.href = fileUrl;
-                    link.target = '_blank';
-                    link.download = fileName;
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                    
-                    // 显示下载提示
-                    const originalText = this.innerHTML;
-                    this.innerHTML = '<i class="fas fa-check"></i> 开始下载';
-                    this.style.backgroundColor = 'var(--success)';
-                    
-                    setTimeout(() => {
-                        this.innerHTML = originalText;
-                        this.style.backgroundColor = '';
-                    }, 2000);
-                });
             });
             
             // 页面加载动画
